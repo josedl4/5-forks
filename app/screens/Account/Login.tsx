@@ -1,13 +1,18 @@
 import React, { FC } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
-import { Divider } from 'react-native-elements';
+import { Divider, DividerProps } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
-const CreateAccount: FC = () => (
-    <Text style={styles.textRegister}>
-        Do not you have an account yet?{' '}
-        <Text style={styles.btnRegister} onPress={() => console.log('Register')}>Register</Text>
-    </Text>
-)
+
+const CreateAccount: FC = () => {
+    const navigation = useNavigation();
+    return (
+        <Text style={styles.textRegister}>
+            Do not you have an account yet?{' '}
+            <Text style={styles.btnRegister} onPress={() => navigation.navigate('register')}>Register</Text>
+        </Text>
+    );
+}
 
 const Login: FC = () => {
     return (
@@ -47,6 +52,7 @@ const styles = StyleSheet.create({
     },
     divider: {
         backgroundColor: '#00a680',
+        height: 1,
         margin: 40
     }
 });
