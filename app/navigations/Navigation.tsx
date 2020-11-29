@@ -1,7 +1,8 @@
 // Imports
-import React from 'react';
-import { NavigationContainer, Route, RouteProp } from '@react-navigation/native';
+import React, { FC } from 'react';
+import { NavigationContainer, Route } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTranslation, UseTranslationResponse } from 'react-i18next';
 
 // Screens
 import AccountStack from './AccountStack';
@@ -11,57 +12,73 @@ import SearchStack from './SearchStack';
 import TopRestaurantsStack from './TopRestaurantsStack';
 import { Icon } from 'react-native-elements';
 
+type TabSection = {
+    id: string,
+    iconName: string,
+    componentView: FC
+}
 
 const Tab = createBottomTabNavigator();
 
 const ACTIVE_COLOR = '#00a680';
 const INACTIVE_COLOR = '#646464';
 
-const SECTIONS: { [any: string]: { id: string, iconName: string } } = {
+const SECTIONS: { [key: string]: TabSection } = {
     restaurants: {
         id: 'restaurants',
-        iconName: 'compass-outline'
+        iconName: 'compass-outline',
+        componentView: RestaurantsStack
     },
     top: {
         id: 'top',
-        iconName: 'star-outline'
+        iconName: 'star-outline',
+        componentView: TopRestaurantsStack
     },
     favs: {
         id: 'favs',
-        iconName: 'heart-outline'
+        iconName: 'heart-outline',
+        componentView: FavouritesStack
     },
     search: {
         id: 'search',
-        iconName: 'magnify'
+        iconName: 'magnify',
+        componentView: SearchStack
     },
     account: {
         id: 'account',
-        iconName: 'home-outline'
+        iconName: 'home-outline',
+        componentView: AccountStack
     }
 };
 
-const screenOptions = (route: Route<string, object | undefined>, color: string) => (
-    <Icon type="material-community" name={SECTIONS[route.name] ? SECTIONS[route.name].iconName : ''} size={22} color={color}></Icon>
-)
 
-const Navigation = () => (
-    <NavigationContainer>
-        <Tab.Navigator
-            initialRouteName="restaurants"
-            tabBarOptions={{
-                inactiveTintColor: ACTIVE_COLOR,
-                activeTintColor: INACTIVE_COLOR
-            }}
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ color }) => screenOptions(route, color)
-            })}>
-            <Tab.Screen name={SECTIONS.restaurants.id} component={RestaurantsStack} options={{ title: 'Restaurants' }} />
-            <Tab.Screen name={SECTIONS.top.id} component={TopRestaurantsStack} options={{ title: 'Top 5' }} />
-            <Tab.Screen name={SECTIONS.favs.id} component={FavouritesStack} options={{ title: 'Favourites' }} />
-            <Tab.Screen name={SECTIONS.search.id} component={SearchStack} options={{ title: 'Search' }} />
-            <Tab.Screen name={SECTIONS.account.id} component={AccountStack} options={{ title: 'Account' }} />
-        </Tab.Navigator>
-    </NavigationContainer >
-);
+const Navigation: FC = () => {
+
+    const { t } = useTranslation();
+
+    const getTabSections = () => Object.values(SECTIONS).map(section => (
+        <Tab.Screen key={section.id} name={section.id} component={section.componentView}
+            options={{ title: t(`SECTIONS.${section.id}.TAB_LABEL`) }} />
+    ));
+
+    const screenOptions = (route: Route<string, object | undefined>, color: string) => (
+        <Icon type="material-community" name={SECTIONS[route.name] ? SECTIONS[route.name].iconName : ''} size={22} color={color}></Icon>
+    )
+    return (
+        <NavigationContainer>
+            <Tab.Navigator
+                initialRouteName="restaurants"
+                tabBarOptions={{
+                    inactiveTintColor: ACTIVE_COLOR,
+                    activeTintColor: INACTIVE_COLOR
+                }}
+                screenOptions={({ route }) => ({
+                    tabBarIcon: ({ color }) => screenOptions(route, color)
+                })}>
+                {getTabSections()}
+            </Tab.Navigator>
+        </NavigationContainer >
+    );
+};
 
 export default Navigation;

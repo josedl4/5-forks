@@ -1,0 +1,21 @@
+{
+    "translation": {
+        "SECTIONS": {
+            "restaurants": {
+                "TAB_LABEL": "Restaurantes"
+            },
+            "top": {
+                "TAB_LABEL": "Top 5"
+            },
+            "favs": {
+                "TAB_LABEL": "Favoritos"
+            },
+            "search": {
+                "TAB_LABEL": "Búsqueda"
+            },
+            "account": {
+                "TAB_LABEL": "Mi Cuenta"
+            }
+        }
+    }
+}
