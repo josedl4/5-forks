@@ -29,7 +29,11 @@
                 "REGISTER": "Register"
             },
             "login": {
-                "TITLE": "Login"
+                "TITLE": "Login",
+                "EMAIL": "Email",
+                "PASSWORD": "Password",
+                "SUBMIT": "Submit",
+                "ERROR_INVALID_CREDENTIALS": "Invalid credentials"
             },
             "register": {
                 "TITLE": "Register",

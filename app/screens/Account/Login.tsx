@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import LoginForm from '../../components/Account/LoginForm';
 
 
 const CreateAccount: FC = () => {
@@ -26,7 +27,7 @@ const Login: FC = () => {
                 resizeMode="contain" style={styles.logo}
             />
             <View style={styles.viewContainer}>
-                <Text>Login Form</Text>
+                <LoginForm />
                 <CreateAccount />
             </View>
             <Divider style={styles.divider} />

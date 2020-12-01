@@ -29,7 +29,11 @@
                 "REGISTER": "Registro"
             },
             "login": {
-                "TITLE": "Iniciar sesión"
+                "TITLE": "Iniciar sesión",
+                "EMAIL": "Correo",
+                "PASSWORD": "Contraseña",
+                "SUBMIT": "Enviar",
+                "ERROR_INVALID_CREDENTIALS": "Credenciales invalidas"
             },
             "register": {
                 "TITLE": "Registro",
