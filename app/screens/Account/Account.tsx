@@ -14,7 +14,7 @@ const Account: FC = () => {
         });
     }, []);
 
-    if (login === null) return <Loading visible={true} text='Loading...'></Loading>;
+    if (login === null) return <Loading visible={true} />;
     else return login ? <UserLogged /> : <UserGuest />;
 }
 

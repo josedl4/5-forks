@@ -1,15 +1,19 @@
 import React, { FC } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
-import { Divider, DividerProps } from 'react-native-elements';
+import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 
 const CreateAccount: FC = () => {
     const navigation = useNavigation();
+    const { t } = useTranslation();
     return (
         <Text style={styles.textRegister}>
-            Do not you have an account yet?{' '}
-            <Text style={styles.btnRegister} onPress={() => navigation.navigate('register')}>Register</Text>
+            {t('account.create_account.HAVE_ACCOUNT')}
+            <Text style={styles.btnRegister} onPress={() => navigation.navigate('register')}>
+                {t('account.create_account.REGISTER')}
+            </Text>
         </Text>
     );
 }

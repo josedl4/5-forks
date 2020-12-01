@@ -2,24 +2,28 @@ import React, { FC } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 const UserGuest: FC = () => {
     const navigation = useNavigation();
+    const { t } = useTranslation();
     return (
         <ScrollView centerContent={true} style={styles.viewBody}>
             <Image
                 source={require('../../../assets/img/user-guest.jpg')}
                 resizeMode="contain" style={styles.image}
             />
-            <Text style={styles.title}>Check out your 5-Forks profile</Text>
+            <Text style={styles.title}>{t('account.user_guest.TITLE')}</Text>
             <Text style={styles.description}>
-                How would you describe your best restaurant?
-                Search and view the best restaurants in a simple way,
-                vote which one you liked the most and comment on how
-                your experience has been.
+                {t('account.user_guest.DECRIPTION')}
             </Text>
             <View style={styles.viewBtn}>
-                <Button buttonStyle={styles.btn} containerStyle={styles.buttonContainer} title="Login" onPress={() => navigation.navigate('login')}></Button>
+                <Button
+                    buttonStyle={styles.btn}
+                    containerStyle={styles.buttonContainer}
+                    title={t('account.user_guest.LOGIN_BTN')}
+                    onPress={() => navigation.navigate('login')}
+                />
             </View>
         </ScrollView>
     )

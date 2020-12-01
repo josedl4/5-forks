@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
 import { View, Text, Button } from 'react-native';
 import { AuthService } from '../../services/AuthService';
 
@@ -10,7 +9,7 @@ const UserLogged: FC = props => {
     return (
         <View>
             <Text>UserLogged...</Text>
-            <Button title="Logout" onPress={() => logout()}></Button>
+            <Button title="Logout" onPress={() => logout()} />
         </View>
     )
 }

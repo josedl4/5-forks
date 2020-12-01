@@ -7,6 +7,7 @@ import Toast from 'react-native-toast-message';
 import { validateEmail, validatePassword } from '../../utils/validations';
 import { AuthService } from '../../services/AuthService';
 import Loading from '../Loading';
+import { useTranslation } from 'react-i18next';
 
 
 const RegisterForm: FC = () => {
@@ -16,6 +17,7 @@ const RegisterForm: FC = () => {
     const [validForm, setValidForm] = useState(true);
     const [sendingForm, setSendingForm] = useState(false);
     const navigation = useNavigation();
+    const { t } = useTranslation();
 
     const onSumbit = async () => {
         try {
@@ -24,7 +26,8 @@ const RegisterForm: FC = () => {
             setSendingForm(false);
             navigation.navigate('account');
         } catch (error) {
-            Toast.show({ type: 'error', text1: 'Email already in use', position: 'bottom' })
+            setSendingForm(false);
+            Toast.show({ type: 'error', text1: t('account.register.ERROR_EMAIL_ALREADY_REGISTERED'), position: 'bottom' })
         }
     }
 
@@ -36,7 +39,7 @@ const RegisterForm: FC = () => {
     return (
         <View style={styles.formContainer}>
             <Input
-                placeholder="Email"
+                placeholder={t('account.register.EMAIL')}
                 style={styles.inputForm}
                 onChange={e => {
                     setFormData({ ...formData, ...{ email: e.nativeEvent.text } });
@@ -52,7 +55,7 @@ const RegisterForm: FC = () => {
             />
             <Input
                 secureTextEntry={!showPassword}
-                placeholder="Password"
+                placeholder={t('account.register.PASSWORD')}
                 style={styles.inputForm}
                 onChange={e => {
                     setFormData({ ...formData, ...{ password: e.nativeEvent.text } });
@@ -69,7 +72,7 @@ const RegisterForm: FC = () => {
             />
             <Input
                 secureTextEntry={!showRepeatedPassword}
-                placeholder="Repeat password"
+                placeholder={t('account.register.REPEAT_PASSWORD')}
                 style={styles.inputForm}
                 onChange={e => {
                     setFormData({ ...formData, ...{ repeatedPassword: e.nativeEvent.text } });
@@ -88,11 +91,11 @@ const RegisterForm: FC = () => {
             <Button
                 buttonStyle={styles.btn}
                 containerStyle={styles.buttonContainer}
-                title="Login"
+                title={t('account.register.SUBMIT')}
                 disabled={validForm}
                 onPress={() => onSumbit()}
             />
-            <Loading visible={sendingForm} text="Loading..."></Loading>
+            <Loading visible={sendingForm} />
         </View>
     )
 }
