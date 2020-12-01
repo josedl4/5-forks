@@ -1,0 +1,56 @@
+{
+    "translation": {
+        "SECTIONS": {
+            "restaurants": {
+                "TAB_LABEL": "Restaurants",
+                "TITLE": "Restaurants"
+            },
+            "top": {
+                "TAB_LABEL": "Top 5",
+                "TITLE": "Top 5"
+            },
+            "favs": {
+                "TAB_LABEL": "Favourites",
+                "TITLE": "Favourites"
+            },
+            "search": {
+                "TAB_LABEL": "Search",
+                "TITLE": "Search Restaurants"
+            },
+            "account": {
+                "TAB_LABEL": "My Acconunt",
+                "TITLE": "My Acconunt"
+            }
+        },
+        "account": {
+            "TITLE": "My Acconunt",
+            "create_account": {
+                "HAVE_ACCOUNT": "Do not you have an account yet? ",
+                "REGISTER": "Register"
+            },
+            "login": {
+                "TITLE": "Login",
+                "EMAIL": "Email",
+                "PASSWORD": "Password",
+                "SUBMIT": "Submit",
+                "ERROR_INVALID_CREDENTIALS": "Invalid credentials"
+            },
+            "register": {
+                "TITLE": "Register",
+                "EMAIL": "Email",
+                "PASSWORD": "Password",
+                "REPEAT_PASSWORD": "Repeat password",
+                "SUBMIT": "Submit",
+                "ERROR_EMAIL_ALREADY_REGISTERED": "Email already in use"
+            },
+            "user_guest": {
+                "TITLE": "Check out your 5-Forks profile",
+                "DECRIPTION": "How would you describe your best restaurant?\nSearch and view the best restaurants in a simple way, vote which one you liked the most and comment on how your experience has been.",
+                "LOGIN_BTN": "Login"
+            }
+        },
+        "common": {
+            "LOADING": "Loading..."
+        }
+    }
+}

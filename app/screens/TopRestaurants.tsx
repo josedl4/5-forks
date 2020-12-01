@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import PropTypes from 'prop-types';
+import { View, Text } from 'react-native';
 
 const TopRestaurants: FC = props => {
     return (
-        <div>
-
-        </div>
+        <View>
+            <Text>TopRestaurants...</Text>
+        </View>
     )
 }
 
