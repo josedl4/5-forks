@@ -14,10 +14,10 @@
     ]
   },
   "include": [
-        "src/**/*",
-        "types"
-    ],
-    "exclude": [
-        "types"
-    ]
+    "app/**/*",
+    "types"
+  ],
+  "exclude": [
+    "types"
+  ]
 }
