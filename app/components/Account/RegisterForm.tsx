@@ -27,7 +27,7 @@ const RegisterForm: FC = () => {
             navigation.navigate('account');
         } catch (error) {
             setSendingForm(false);
-            Toast.show({ type: 'error', text1: t('account.register.ERROR_EMAIL_ALREADY_REGISTERED'), position: 'bottom' })
+            Toast.show({ type: 'error', text1: t('account.register.ERROR_EMAIL_ALREADY_REGISTERED'), position: 'bottom' });
         }
     }
 

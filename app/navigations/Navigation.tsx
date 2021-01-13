@@ -3,11 +3,14 @@ import React, { FC } from 'react';
 import { NavigationContainer, Route, Theme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
-import { colors, Icon } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+
 import SECTIONS_MODULES from './Sections';
 import { lightColors, darkColors } from '../configuration/colorThemes';
 import { useColorScheme } from 'react-native-appearance';
 import StackNavigation from './StackNavigation';
+import { THEMES } from '../configuration/constants';
+import { ThemeService } from '../services/ThemeService';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,13 +20,13 @@ const INACTIVE_COLOR = '#646464';
 const Navigation: FC = () => {
 
     const { t } = useTranslation();
-    console.log(useColorScheme());
     const isDark = useColorScheme() === 'dark';
     const myTheme: Theme = {
         dark: isDark,
         colors: isDark ? darkColors : lightColors
     }
-    console.log(myTheme);
+
+    ThemeService.getInstance().setColorTheme(isDark ? THEMES.dark : THEMES.light);
 
     const getTabSections = () => Object.values(SECTIONS_MODULES).map(section => (
         <Tab.Screen key={section.id} name={section.id}

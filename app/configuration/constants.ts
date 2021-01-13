@@ -20,3 +20,14 @@ export const SECTIONS = {
         iconName: 'home-outline'
     }
 }
+
+export enum THEMES {
+    dark = 'dark',
+    light = 'light'
+}
+
+export const EMPTY_FIELD = '---';
+
+export const STORAGE_FOLDERS = {
+    AVATARS: '/user_avatars/'
+}

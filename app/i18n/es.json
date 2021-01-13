@@ -43,6 +43,9 @@
                 "SUBMIT": "Enviar",
                 "ERROR_EMAIL_ALREADY_REGISTERED": "El correo ya esta en uso"
             },
+            "user_logged": {
+                "logout": "Cerrar sesión"
+            },
             "user_guest": {
                 "TITLE": "Consulte su perfil de 5-Forks",
                 "DECRIPTION": "¿Cómo describiría su mejor restaurante?\n Busca y visualiza los mejores restaurantes de forma sencilla, vota cuál te ha gustado más y comenta cómo ha sido tu experiencia.",
@@ -50,6 +53,8 @@
             }
         },
         "common": {
+            "ERROR_UPLOAD": "Error mientras subia el fichero",
+            "MEDIA_LIBRARY_PERMISSIONS_REQUIRED": "Se requieren permisos de galería multimedia",
             "LOADING": "Cargando..."
         }
     }

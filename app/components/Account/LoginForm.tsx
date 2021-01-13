@@ -26,7 +26,7 @@ const LoginForm: FC = () => {
             navigation.navigate('account');
         } catch (error) {
             setSendingForm(false);
-            Toast.show({ type: 'error', text1: t('account.login.ERROR_INVALID_CREDENTIALS'), position: 'bottom' })
+            Toast.show({ type: 'error', text1: t('account.login.ERROR_INVALID_CREDENTIALS'), position: 'bottom' });
         }
     }
 
